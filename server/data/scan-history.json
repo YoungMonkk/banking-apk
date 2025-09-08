@@ -1,0 +1,177 @@
+[
+  {
+    "id": "0145dca6-f76e-42c4-aadf-31628bfa4c41",
+    "timestamp": "2025-08-31T17:41:54.855Z",
+    "riskLevel": "safe",
+    "riskScore": 15,
+    "status": "completed",
+    "fileSize": 19759761,
+    "threats": [],
+    "permissions": [],
+    "recommendations": [
+      "This APK appears to be safe for installation",
+      "Always download from official sources when possible"
+    ]
+  },
+  {
+    "id": "30fd6124-6803-48ab-81d0-6444c8cb0dec",
+    "timestamp": "2025-08-31T17:41:20.014Z",
+    "riskLevel": "high_risk",
+    "riskScore": 70,
+    "status": "completed",
+    "fileSize": 39705059,
+    "threats": [],
+    "permissions": [],
+    "recommendations": [
+      "DO NOT INSTALL this APK - high risk of malware",
+      "Delete the file immediately",
+      "Report to your bank if this claims to be a banking app"
+    ]
+  },
+  {
+    "id": "1a8dff0c-0414-4a39-955d-dab3151baf3a",
+    "timestamp": "2025-08-31T17:34:14.289Z",
+    "riskLevel": "safe",
+    "riskScore": 15,
+    "status": "completed",
+    "fileSize": 19759761,
+    "threats": [],
+    "permissions": [],
+    "recommendations": [
+      "This APK appears to be safe for installation",
+      "Always download from official sources when possible"
+    ]
+  },
+  {
+    "id": "eebf805f-b376-4441-aac8-367379ca7be0",
+    "timestamp": "2025-08-31T17:33:50.783Z",
+    "riskLevel": "high_risk",
+    "riskScore": 70,
+    "status": "completed",
+    "fileSize": 39705059,
+    "threats": [],
+    "permissions": [],
+    "recommendations": [
+      "DO NOT INSTALL this APK - high risk of malware",
+      "Delete the file immediately",
+      "Report to your bank if this claims to be a banking app"
+    ]
+  },
+  {
+    "id": "b21714a7-c016-418f-865f-a8f2d37c22f9",
+    "timestamp": "2025-08-31T17:25:17.688Z",
+    "riskLevel": "safe",
+    "riskScore": 15,
+    "status": "completed",
+    "fileSize": 19759761,
+    "threats": [],
+    "permissions": [],
+    "recommendations": [
+      "This APK appears to be safe for installation",
+      "Always download from official sources when possible"
+    ]
+  },
+  {
+    "id": "8ddea1f6-e55a-4bd7-89aa-8e4f17ceb452",
+    "timestamp": "2025-08-31T17:24:44.797Z",
+    "riskLevel": "high_risk",
+    "riskScore": 70,
+    "status": "completed",
+    "fileSize": 39705059,
+    "threats": [],
+    "permissions": [],
+    "recommendations": [
+      "DO NOT INSTALL this APK - high risk of malware",
+      "Delete the file immediately",
+      "Report to your bank if this claims to be a banking app"
+    ]
+  },
+  {
+    "id": "37cdfc29-1ccc-4c1a-9e3b-6a6e15da7bf6",
+    "timestamp": "2025-08-31T17:20:47.782Z",
+    "riskLevel": "safe",
+    "riskScore": 15,
+    "status": "completed",
+    "fileSize": 19759761,
+    "threats": [],
+    "permissions": [],
+    "recommendations": [
+      "This APK appears to be safe for installation",
+      "Always download from official sources when possible"
+    ]
+  },
+  {
+    "id": "d054e4b1-a936-4f3f-98af-db40dca326cf",
+    "timestamp": "2025-08-31T17:20:17.375Z",
+    "riskLevel": "high_risk",
+    "riskScore": 70,
+    "status": "completed",
+    "fileSize": 39705059,
+    "threats": [],
+    "permissions": [],
+    "recommendations": [
+      "DO NOT INSTALL this APK - high risk of malware",
+      "Delete the file immediately",
+      "Report to your bank if this claims to be a banking app"
+    ]
+  },
+  {
+    "id": "aa47714d-451c-4ec9-acfc-b458845d30ea",
+    "timestamp": "2025-08-31T17:19:22.661Z",
+    "riskLevel": "safe",
+    "riskScore": 15,
+    "status": "completed",
+    "fileSize": 19759761,
+    "threats": [],
+    "permissions": [],
+    "recommendations": [
+      "This APK appears to be safe for installation",
+      "Always download from official sources when possible"
+    ]
+  },
+  {
+    "id": "c2d78ea8-5a32-4df7-a523-200d2816d56b",
+    "timestamp": "2025-08-31T17:17:59.069Z",
+    "riskLevel": "high_risk",
+    "riskScore": 70,
+    "status": "completed",
+    "fileSize": 39705059,
+    "threats": [],
+    "permissions": [],
+    "recommendations": [
+      "DO NOT INSTALL this APK - high risk of malware",
+      "Delete the file immediately",
+      "Report to your bank if this claims to be a banking app"
+    ]
+  },
+  {
+    "id": "4a480d59-c399-4e72-ad33-66ab2fdaad78",
+    "timestamp": "2025-08-31T17:13:08.505Z",
+    "riskLevel": "high_risk",
+    "riskScore": 70,
+    "status": "completed",
+    "fileSize": 39705059,
+    "threats": [],
+    "permissions": [],
+    "recommendations": [
+      "DO NOT INSTALL this APK - high risk of malware",
+      "Delete the file immediately",
+      "Report to your bank if this claims to be a banking app"
+    ]
+  },
+  {
+    "id": "5e850298-8b7f-4288-a415-29e1353fc229",
+    "timestamp": "2025-08-31T17:10:45.788Z",
+    "riskLevel": "high_risk",
+    "riskScore": 70,
+    "status": "completed",
+    "fileSize": 39705059,
+    "threats": [],
+    "permissions": [],
+    "recommendations": [
+      "DO NOT INSTALL this APK - high risk of malware",
+      "Delete the file immediately",
+      "Report to your bank if this claims to be a banking app"
+    ]
+  }
+]

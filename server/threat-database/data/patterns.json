@@ -1,0 +1,137 @@
+[
+  {
+    "id": "pattern_010",
+    "name": "Overlay Attack APIs",
+    "pattern": "overlay",
+    "description": "Use of overlay windows to capture credentials",
+    "riskLevel": "high",
+    "tags": ["overlay", "credential_theft", "phishing"],
+    "examples": [
+      "SYSTEM_ALERT_WINDOW",
+      "TYPE_APPLICATION_OVERLAY",
+      "TYPE_SYSTEM_ALERT",
+      "android.view.WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY",
+      "android.view.WindowManager.LayoutParams.TYPE_SYSTEM_ALERT"
+    ]
+  },
+  {
+    "id": "pattern_011",
+    "name": "Accessibility Abuse",
+    "pattern": "accessibility",
+    "description": "Abuse of AccessibilityService to read screen/input",
+    "riskLevel": "high",
+    "tags": ["accessibility", "keylogging", "screen_reading"],
+    "examples": [
+      "android.accessibilityservice.AccessibilityService",
+      "android.permission.BIND_ACCESSIBILITY_SERVICE",
+      "onAccessibilityEvent",
+      "AccessibilityEvent"
+    ]
+  },
+  {
+    "id": "pattern_012",
+    "name": "SMS Interception",
+    "pattern": "sms_intercept",
+    "description": "APIs and permissions to intercept OTP/SMS",
+    "riskLevel": "high",
+    "tags": ["sms", "otp", "interception"],
+    "examples": [
+      "android.permission.RECEIVE_SMS",
+      "android.permission.READ_SMS",
+      "android.telephony.SmsManager",
+      "SMS_RECEIVED",
+      "SmsMessage"
+    ]
+  },
+  {
+    "id": "pattern_013",
+    "name": "Device Admin Abuse",
+    "pattern": "device_admin",
+    "description": "Use of Device Admin to harden persistence/control",
+    "riskLevel": "high",
+    "tags": ["device_admin", "persistence"],
+    "examples": [
+      "DeviceAdminReceiver",
+      "android.app.admin.DevicePolicyManager",
+      "android.permission.BIND_DEVICE_ADMIN"
+    ]
+  },
+  {
+    "id": "pattern_014",
+    "name": "Silent Package Install",
+    "pattern": "silent_install",
+    "description": "Capabilities to install packages from unknown sources",
+    "riskLevel": "medium",
+    "tags": ["install", "packages"],
+    "examples": [
+      "android.permission.REQUEST_INSTALL_PACKAGES",
+      "ACTION_INSTALL_PACKAGE",
+      "PackageInstaller"
+    ]
+  },
+  {
+    "id": "pattern_015",
+    "name": "Boot Persistence",
+    "pattern": "boot_persistence",
+    "description": "Start on boot to maintain persistence",
+    "riskLevel": "medium",
+    "tags": ["boot", "persistence"],
+    "examples": [
+      "android.permission.RECEIVE_BOOT_COMPLETED",
+      "BOOT_COMPLETED",
+      "BroadcastReceiver"
+    ]
+  },
+  {
+    "id": "pattern_016",
+    "name": "Usage Stats Access",
+    "pattern": "usage_stats",
+    "description": "Access to usage stats for app surveillance",
+    "riskLevel": "medium",
+    "tags": ["privacy", "surveillance"],
+    "examples": [
+      "android.permission.PACKAGE_USAGE_STATS",
+      "UsageStatsManager"
+    ]
+  },
+  {
+    "id": "pattern_017",
+    "name": "Screen Capture",
+    "pattern": "screen_capture",
+    "description": "APIs that capture screen content",
+    "riskLevel": "medium",
+    "tags": ["screen_capture", "privacy"],
+    "examples": [
+      "MediaProjection",
+      "VirtualDisplay",
+      "ImageReader"
+    ]
+  },
+  {
+    "id": "pattern_018",
+    "name": "Keylogger Indicators",
+    "pattern": "keylogger",
+    "description": "Signals related to intercepting key input",
+    "riskLevel": "high",
+    "tags": ["keylogging", "input"],
+    "examples": [
+      "dispatchKeyEvent",
+      "onKeyDown",
+      "InputMethodService"
+    ]
+  },
+  {
+    "id": "pattern_019",
+    "name": "WebView Injection",
+    "pattern": "webview_injection",
+    "description": "Potential JS interface injection in WebView",
+    "riskLevel": "medium",
+    "tags": ["webview", "injection"],
+    "examples": [
+      "addJavascriptInterface",
+      "evaluateJavascript"
+    ]
+  }
+]
+
+

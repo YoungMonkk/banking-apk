@@ -1,0 +1,312 @@
+/* Background pattern and images */
+.hero {
+    background: linear-gradient(135deg, rgba(26, 69, 135, 0.9), rgba(58, 110, 165, 0.8)), 
+                url('https://img.freepik.com/free-vector/cyber-security-concept_23-2148532223.jpg?w=1380&t=st=1683032500~exp=1683033100~hmac=9ad12f70cdcb76627b5ef13c5ce53a8c6d0cb25c364b5c47b9c33c5c57140364');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Floating security icons */
+.security-icon {
+    position: absolute;
+    opacity: 0.15;
+    animation: float 6s ease-in-out infinite;
+    z-index: 1;
+}
+
+.security-icon:nth-child(1) {
+    top: 20%;
+    left: 10%;
+    font-size: 3rem;
+    animation-delay: 0s;
+}
+
+.security-icon:nth-child(2) {
+    top: 60%;
+    left: 20%;
+    font-size: 2.5rem;
+    animation-delay: 1s;
+}
+
+.security-icon:nth-child(3) {
+    top: 30%;
+    right: 15%;
+    font-size: 4rem;
+    animation-delay: 2s;
+}
+
+.security-icon:nth-child(4) {
+    bottom: 20%;
+    right: 10%;
+    font-size: 3.5rem;
+    animation-delay: 1.5s;
+}
+
+/* Enhanced feature box animations */
+.feature-box {
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+               box-shadow 0.4s ease;
+    background-size: 200% 200%;
+    background-position: 0 0;
+    background-image: linear-gradient(45deg, white 0%, white 85%, rgba(26, 69, 135, 0.1) 100%);
+}
+
+.feature-box:hover {
+    transform: translateY(-15px) scale(1.03);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    background-position: 100% 100%;
+}
+
+.feature-icon {
+    transition: transform 0.5s ease;
+}
+
+.feature-box:hover .feature-icon {
+    transform: scale(1.2) rotate(10deg);
+    color: var(--accent);
+}
+
+/* History Page Styles */
+.history-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.history-filters {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.history-search {
+    flex: 1;
+    max-width: 300px;
+}
+
+.history-list {
+    min-height: 200px;
+}
+
+.history-empty {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--text-muted);
+}
+
+.empty-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+}
+
+.history-item {
+    display: flex;
+    align-items: center;
+    padding: 1.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+    background: var(--card-bg, white);
+}
+
+.history-item:hover {
+    box-shadow: 0 4px 12px var(--shadow, rgba(0,0,0,0.1));
+    transform: translateY(-2px);
+}
+
+.history-item-icon {
+    font-size: 2rem;
+    margin-right: 1rem;
+    width: 60px;
+    text-align: center;
+}
+
+.history-item-content {
+    flex: 1;
+}
+
+.history-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+}
+
+.history-item-title {
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.history-item-date {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.history-item-details {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.history-item-detail {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.history-item-risk {
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.history-item-risk.safe {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.history-item-risk.suspicious {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.history-item-risk.malicious {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.history-item-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.history-item-actions .btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .history-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .history-filters {
+        justify-content: space-between;
+    }
+    
+    .history-search {
+        max-width: none;
+    }
+    
+    .history-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    
+    .history-item-header {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .history-item-details {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .history-item-actions {
+        width: 100%;
+        justify-content: stretch;
+    }
+    
+    .history-item-actions .btn {
+        flex: 1;
+    }
+}
+
+/* Animated fraud detection image section */
+.fraud-image-section {
+    display: flex;
+    margin: 3rem 0;
+    align-items: center;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.fraud-image {
+    width: 50%;
+    position: relative;
+    overflow: hidden;
+    height: 400px;
+}
+
+.fraud-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.fraud-image:hover img {
+    transform: scale(1.05);
+}
+
+.fraud-content {
+    width: 50%;
+    padding: 2rem;
+}
+
+.stat-item {
+    transition: transform 0.3s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-10px);
+}
+
+.stat-number {
+    position: relative;
+    display: inline-block;
+}
+
+.stat-number::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: var(--primary);
+    transition: width 0.3s ease;
+}
+
+.stat-item:hover .stat-number::after {
+    width: 100%;
+}
+
+/* Alert badge animation */
+.alert-badge {
+    display: inline-block;
+    background-color: var(--warning);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    margin-top: 1rem;
+    position: relative;
+    animation: pulse 2s infinite;
+}
