@@ -194,12 +194,23 @@ class APKScanner {
                     console.log('analysis poll result:', result);
                     
                     if (result.status === 'completed') {
-                        clearInterval(this.progressInterval);
-                        if (this.scanTimeout) {
-                            clearTimeout(this.scanTimeout);
-                            this.scanTimeout = null;
+                        console.log('Analysis completed, checking conditions:', {
+                            progress: result.progress,
+                            stepsLength: result.steps ? result.steps.length : 0,
+                            hasResults: !!result.results
+                        });
+                        
+                        // Check if we have results and progress is high enough (>= 95%)
+                        if (result.results && result.progress >= 95) {
+                            clearInterval(this.progressInterval);
+                            if (this.scanTimeout) {
+                                clearTimeout(this.scanTimeout);
+                                this.scanTimeout = null;
+                            }
+                            this.showBackendResults(result);
+                        } else {
+                            console.log('Analysis completed but conditions not met, continuing to poll...');
                         }
-                        this.showBackendResults(result);
                     } else if (result.status === 'failed') {
                         clearInterval(this.progressInterval);
                         console.error('analysis failed payload:', result);
@@ -227,7 +238,7 @@ class APKScanner {
                     this.resetToUploadState();
                 }
             }
-        }, 2000); // Check every 2 seconds
+        }, 1000); // Check every 1 second for better responsiveness
     }
     
     updateProgressFromBackend(result) {
@@ -251,15 +262,15 @@ class APKScanner {
         // Mark completed steps
         steps.forEach((stepInfo, index) => {
             const stepElement = document.getElementById(`step-${index + 1}`);
-            if (stepElement) {
+            if (stepElement && stepInfo.status === 'completed') {
                 stepElement.classList.add('completed');
             }
         });
         
-        // Mark next step as active (avoid step-0)
+        // Mark next step as active (the one after the last completed step)
         const nextStepIndex = Math.min(steps.length + 1, 5);
         const currentStepElement = document.getElementById(`step-${nextStepIndex}`);
-        if (currentStepElement) {
+        if (currentStepElement && nextStepIndex <= 5) {
             currentStepElement.classList.add('active');
         }
     }
@@ -297,9 +308,10 @@ class APKScanner {
             });
         }
         
-        // Show success notification
-        const level = result.summary ? result.summary.riskLevel : 'unknown';
-        this.showNotification(`Analysis completed! Risk level: ${String(level).toUpperCase()}`, 'success');
+        // Show success notification with proper risk level
+        const level = result.summary && result.summary.riskLevel ? result.summary.riskLevel : 'unknown';
+        const riskScore = result.summary && result.summary.riskScore !== undefined ? result.summary.riskScore : 'N/A';
+        this.showNotification(`Analysis completed! Risk level: ${String(level).toUpperCase()} (Score: ${riskScore}/100)`, 'success');
     }
     
     generateBackendSafeResultHTML(result) {
