@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APKGuard - Banking App Security Scanner</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo" onclick="navigateTo('home')">
+                    <span class="logo-icon">🛡️</span>
+                    <span>APKGuard</span>
+                </div>
+                <div class="theme-toggle">
+                    <button id="theme-toggle" class="theme-btn" onclick="toggleTheme()">
+                        <span class="theme-icon" id="theme-icon">🌙</span>
+                    </button>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#" onclick="navigateTo('home')" class="active" id="nav-home">Home</a></li>
+                        <li><a href="#" onclick="navigateTo('scan')" id="nav-scan">Scan APK</a></li>
+                        <li><a href="#" onclick="navigateTo('history')" id="nav-history">History</a></li>
+                        <li><a href="#" onclick="navigateTo('about')" id="nav-about">About</a></li>
+                        <li><a href="#" onclick="navigateTo('threats')" id="nav-threats">Threat Info</a></li>
+                        <li><a href="#" onclick="navigateTo('faq')" id="nav-faq">FAQ</a></li>
+                        <li><a href="#" onclick="navigateTo('contact')" id="nav-contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <!-- Home Page -->
+            <div class="page active" id="home-page">
+                <section class="hero">
+                    <h1>Protect Your Financial Security</h1>
+                    <p>Verify the authenticity of banking applications before installation with our advanced APK security scanner.</p>
+                    <button class="btn btn-accent btn-lg" onclick="navigateTo('scan')">Scan Your APK Now</button>
+                </section>
+
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-number">10,000+</div>
+                        <div class="stat-label">APKs Scanned</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Threats Detected</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">99.8%</div>
+                        <div class="stat-label">Accuracy Rate</div>
+                    </div>
+                </div>
+
+                <h2>How It Works</h2>
+                <div class="card-grid">
+                    <div class="feature-box">
+                        <div class="feature-icon">📱</div>
+                        <h3>Upload Your APK</h3>
+                        <p>Simply upload the banking application APK file you want to verify.</p>
+                    </div>
+                    <div class="feature-box">
+                        <div class="feature-icon">🔍</div>
+                        <h3>Deep Analysis</h3>
+                        <p>Our system performs a comprehensive security analysis of the application.</p>
+                    </div>
+                    <div class="feature-box">
+                        <div class="feature-icon">📊</div>
+                        <h3>Detailed Report</h3>
+                        <p>Receive a comprehensive security report with actionable recommendations.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Why Use APKGuard?</h2>
+                    </div>
+                    <p>Banking malware poses a serious threat to your financial security. Cybercriminals distribute fake banking applications that mimic legitimate ones to steal your login credentials and financial information.</p>
+                    <br>
+                    <p>APKGuard helps you verify the authenticity of banking applications before installation, ensuring your financial data remains protected.</p>
+                    <br>
+                    <button class="btn" onclick="navigateTo('about')">Learn More About Us</button>
+                </div>
+            </div>
+
+            <!-- Scan Page -->
+            <div class="page" id="scan-page">
+                <h1>APK Security Scanner</h1>
+                <p>Upload your APK file to verify its authenticity and check for potential security threats.</p>
+                
+                <div class="card">
+                    <div class="upload-area" id="upload-area">
+                        <div class="upload-icon">📤</div>
+                        <h3>Drag & Drop Your APK File Here</h3>
+                        <p>or</p>
+                        <input type="file" id="file-input" accept=".apk">
+                        <button class="btn" id="upload-btn">Browse Files</button>
+                    </div>
+                    
+                    <div id="scan-progress" style="display: none;">
+                        <h3>Scanning in Progress</h3>
+                        <p id="scan-file-name"></p>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" id="scan-progress-bar"></div>
+                        </div>
+                        <p id="scan-percentage">0%</p>
+                        
+                        <div class="scan-status-steps">
+                            <div class="scan-step" id="step-1">
+                                <div class="step-icon">1</div>
+                                <div class="step-content">
+                                    <h4>File Analysis</h4>
+                                    <p>Examining file structure and integrity</p>
+                                </div>
+                            </div>
+                            <div class="scan-step" id="step-2">
+                                <div class="step-icon">2</div>
+                                <div class="step-content">
+                                    <h4>Permission Check</h4>
+                                    <p>Analyzing requested permissions</p>
+                                </div>
+                            </div>
+                            <div class="scan-step" id="step-3">
+                                <div class="step-icon">3</div>
+                                <div class="step-content">
+                                    <h4>Signature Verification</h4>
+                                    <p>Verifying developer signatures</p>
+                                </div>
+                            </div>
+                            <div class="scan-step" id="step-4">
+                                <div class="step-icon">4</div>
+                                <div class="step-content">
+                                    <h4>Code Analysis</h4>
+                                    <p>Checking for malicious code patterns</p>
+                                </div>
+                            </div>
+                            <div class="scan-step" id="step-5">
+                                <div class="step-icon">5</div>
+                                <div class="step-content">
+                                    <h4>Database Check</h4>
+                                    <p>Comparing with known threats</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card result-section" id="result-section" style="display: none;">
+                    <div id="result-content"></div>
+                </div>
+            </div>
+
+            <!-- About Page -->
+            <div class="page" id="about-page">
+                <h1>About APKGuard</h1>
+                
+                <div class="card">
+                    <h2>Our Mission</h2>
+                    <p>APKGuard was founded with a clear mission: to protect users from the growing threat of fake banking applications and financial malware. We believe everyone deserves access to tools that can help them verify the safety of applications before installation.</p>
+                    
+                    <h2>How Our Technology Works</h2>
+                    <p>APKGuard employs a multi-layered approach to analyze Android application packages:</p>
+                    
+                    <div class="card-grid">
+                        <div class="feature-box">
+                            <h3>Static Analysis</h3>
+                            <p>We examine the APK file structure, manifest, and resources without executing the code.</p>
+                        </div>
+                        <div class="feature-box">
+                            <h3>Permission Analysis</h3>
+                            <p>We flag suspicious permission requests that legitimate banking apps wouldn't require.</p>
+                        </div>
+                        <div class="feature-box">
+                            <h3>Signature Verification</h3>
+                            <p>We check digital signatures against a database of known legitimate banking app publishers.</p>
+                        </div>
+                        <div class="feature-box">
+                            <h3>Code Pattern Analysis</h3>
+                            <p>We scan for code patterns associated with malicious activities like data theft.</p>
+                        </div>
+                        <div class="feature-box">
+                            <h3>Behavior Prediction</h3>
+                            <p>We analyze potential app behaviors without actually running the code.</p>
+                        </div>
+                        <div class="feature-box">
+                            <h3>Threat Intelligence</h3>
+                            <p>We maintain a comprehensive database of known banking malware signatures.</p>
+                        </div>
+                    </div>
+                    
+                    <h2>Our Team</h2>
+                    <p>APKGuard is developed by a team of cybersecurity experts, mobile security researchers, and software engineers dedicated to fighting financial fraud and protecting users worldwide.</p>
+                </div>
+            </div>
+
+            <!-- Threats Info Page -->
+            <div class="page" id="threats-page">
+                <h1>Banking Malware Threats</h1>
+                
+                <div class="card">
+                    <p>Financial malware targeting mobile banking users has grown significantly in recent years. Understanding these threats can help you protect yourself.</p>
+                    
+                    <div class="threat-info">
+                        <div class="threat-type">
+                            <h3>Banking Trojans</h3>
+                            <p>Banking Trojans are malicious applications designed to steal financial information by creating overlay screens that mimic legitimate banking applications. When you enter your credentials, they are sent directly to attackers.</p>
+                            <p><strong>Common signs:</strong> Requesting excessive permissions, unknown developers, poor reviews, unusual behavior.</p>
+                        </div>
+                        
+                        <div class="threat-type">
+                            <h3>SMS Interceptors</h3>
+                            <p>These malicious apps intercept SMS messages containing one-time passwords (OTPs) and transaction confirmations, allowing attackers to bypass two-factor authentication.</p>
+                            <p><strong>Common signs:</strong> Requesting SMS read permissions, running in the background, unusual battery drain.</p>
+                        </div>
+                        
+                        <div class="threat-type">
+                            <h3>Fake Banking Apps</h3>
+                            <p>These are counterfeit versions of legitimate banking applications that visually mimic real apps but contain malicious code to steal credentials and financial data.</p>
+                            <p><strong>Common signs:</strong> Downloaded from unofficial sources, slight differences in logos or interface, requesting unusual permissions.</p>
+                        </div>
+                        
+                        <div class="threat-type">
+                            <h3>Keyloggers</h3>
+                            <p>These malicious applications record everything you type on your device, including usernames, passwords, and credit card numbers.</p>
+                            <p><strong>Common signs:</strong> Requesting accessibility services, unusual keyboard behavior, high data usage.</p>
+                        </div>
+                    </div>
+                    
+                    <h2>Protecting Yourself</h2>
+                    <ul>
+                        <li>Only download banking apps from official sources (Google Play Store, Apple App Store) or directly from your bank's official website.</li>
+                        <li>Always check app permissions before installation.</li>
+                        <li>Keep your device operating system and applications updated.</li>
+                        <li>Use APKGuard to verify the authenticity of banking APKs before installation.</li>
+                        <li>Install reputable mobile security software.</li>
+                        <li>Be cautious of phishing emails or text messages with links to download banking apps.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- FAQ Page -->
+            <div class="page" id="faq-page">
+                <h1>Frequently Asked Questions</h1>
+                
+                <div class="card">
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <span>What is an APK file?</span>
+                            <span>+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>APK (Android Package Kit) is the file format used by Android operating systems for distribution and installation of mobile apps. It's similar to .exe files for Windows or .dmg files for macOS.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <span>How does APKGuard detect fake banking apps?</span>
+                            <span>+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>APKGuard uses a multi-layered approach that includes checking app permissions, verifying digital signatures, analyzing code patterns, and comparing against a database of known legitimate banking applications and malware signatures.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <span>Is my APK file data secure when I upload it?</span>
+                            <span>+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, all uploaded files are analyzed in a secure, isolated environment. We don't store your APK files after analysis, and all data is processed with strict privacy controls in place.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <span>Can APKGuard detect all types of banking malware?</span>
+                            <span>+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>While APKGuard has a high detection rate, no security solution can guarantee 100% detection of all threats, especially new, sophisticated malware. We continuously update our detection systems to keep up with emerging threats.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <span>Why should I not download banking apps from unofficial sources?</span>
+                            <span>+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Unofficial sources don't have the same security checks as official app stores. Banking apps from these sources are often modified to include malicious code that can steal your financial information or monitor your activity.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <span>What should I do if APKGuard detects a threat?</span>
+                            <span>+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>If APKGuard identifies a threat, you should not install the application. Delete the APK file immediately and contact your bank through their official channels to report the fake app and verify their legitimate application sources.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- History Page -->
+            <div class="page" id="history-page">
+                <h1>Scan History</h1>
+                <p>View your previous APK scans and analysis results.</p>
+                
+                <div class="card">
+                    <div class="history-controls">
+                        <div class="history-filters">
+                            <select id="history-filter" class="form-control">
+                                <option value="all">All Scans</option>
+                                <option value="safe">Safe Only</option>
+                                <option value="suspicious">Suspicious Only</option>
+                                <option value="malicious">Malicious Only</option>
+                            </select>
+                            <button class="btn btn-secondary" onclick="clearHistory()">Clear History</button>
+                        </div>
+                        <div class="history-search">
+                            <input type="text" id="history-search" class="form-control" placeholder="Search by filename...">
+                        </div>
+                    </div>
+                    
+                    <div class="history-list" id="history-list">
+                        <div class="history-empty" id="history-empty">
+                            <div class="empty-icon">📋</div>
+                            <h3>No scan history yet</h3>
+                            <p>Your APK scan history will appear here after you scan your first file.</p>
+                            <button class="btn btn-accent" onclick="navigateTo('scan')">Scan Your First APK</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Page -->
+            <div class="page" id="contact-page">
+                <h1>Contact Us</h1>
+                
+                <div class="card">
+                    <p>Have questions, feedback, or need assistance? Get in touch with our team.</p>
+                    
+                    <div class="contact-form">
+                        <div class="form-group">
+                            <label class="form-label" for="name">Your Name</label>
+                            <input type="text" id="name" class="form-control" placeholder="Enter your name">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" placeholder="Enter your email">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="subject">Subject</label>
+                            <input type="text" id="subject" class="form-control" placeholder="Enter subject">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="message">Message</label>
+                            <textarea id="message" class="form-control" placeholder="Enter your message"></textarea>
+                        </div>
+                        
+                        <button class="btn" onclick="simulateFormSubmit()">Send Message</button>
+                        <div id="form-status" style="margin-top: 1rem;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>APKGuard</h3>
+                    <p>Protecting your financial security by detecting fake banking applications and malware.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#" onclick="navigateTo('home')">Home</a></li>
+                        <li><a href="#" onclick="navigateTo('scan')">Scan APK</a></li>
+                        <li><a href="#" onclick="navigateTo('about')">About Us</a></li>
+                        <li><a href="#" onclick="navigateTo('faq')">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Email: info@apkguard.com</p>
+                    <p>Phone: +91 7000822249</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 APKGuard. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/theme.js?v=2"></script>
+    <script src="js/navigation.js?v=2"></script>
+    <script src="js/scan.js?v=2"></script>
+    <script src="js/history.js?v=2"></script>
+    <script src="js/faq.js?v=2"></script>
+    <script src="js/contact.js?v=2"></script>
+    <script src="js/main.js?v=2"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+{
+  "name": "apkguard",
+  "version": "1.0.0",
+  "description": "A comprehensive web application for scanning and analyzing Android APK files to detect potential banking malware and security threats.",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8080",
+    "serve": "npx http-server -p 8080",
+    "dev": "npx live-server --port=8080",
+    "build": "echo 'No build process required for static site'",
+    "test": "echo 'No tests specified'"
+  },
+  "keywords": [
+    "apk",
+    "security",
+    "malware",
+    "banking",
+    "scanner",
+    "android",
+    "cybersecurity",
+    "web-app"
+  ],
+  "author": "APKGuard Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/apkguard.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/apkguard/issues"
+  },
+  "homepage": "https://github.com/yourusername/apkguard#readme",
+  "devDependencies": {
+    "fs-extra": "^11.3.1",
+    "http-server": "^14.1.1",
+    "live-server": "^1.2.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "dependencies": {
+    "adm-zip": "^0.5.16",
+    "form-data": "^4.0.4",
+    "node-fetch": "^3.3.2"
+  }
+}
