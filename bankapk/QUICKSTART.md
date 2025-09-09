@@ -14,8 +14,7 @@ node --version
 
 ### 2. Install Dependencies (copy-paste these exact commands)
 ```powershell
-# From project root (frontend)
-npm install
+x
 
 # From backend folder
 cd server
@@ -26,11 +25,9 @@ cd ..
 ### 3. Start Backend (Terminal 1)
 ```powershell
 # Navigate to server folder and start with environment variables
-cd server
-$env:FRONTEND_URL='http://localhost:8080'
-$env:ALLOW_ALL_CORS='true'
-$env:MAX_APK_SIZE_MB='200'
-$env:PORT='3000'
+
+
+
 
 # Install dependencies if not already done
 npm install

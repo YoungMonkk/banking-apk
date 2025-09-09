@@ -281,14 +281,17 @@ class APKScanner {
         
         let resultHTML = '';
         
-        if (result.summary && result.summary.isSafe) {
-            resultHTML = this.generateBackendSafeResultHTML(result);
-        } else if (result.summary && !result.summary.isSafe) {
-            resultHTML = this.generateBackendWarningResultHTML(result);
+        // Check if we have valid summary data
+        if (result.summary && result.summary.riskLevel) {
+            if (result.summary.isSafe || result.summary.riskLevel === 'safe') {
+                resultHTML = this.generateBackendSafeResultHTML(result);
+            } else {
+                resultHTML = this.generateBackendWarningResultHTML(result);
+            }
         } else {
-            console.warn('result.summary missing; showing warning UI by default');
+            console.warn('result.summary missing or invalid; showing warning UI by default');
             resultHTML = this.generateBackendWarningResultHTML({
-                summary: { riskLevel: 'suspicious', riskScore: 50, confidence: 70 },
+                summary: { riskLevel: 'suspicious', riskScore: 50, confidence: 70, isSafe: false },
                 details: result.details || { manifestAnalysis: { packageName: 'Unknown', versionName: 'Unknown', versionCode: 'Unknown' }, permissionAnalysis: { total: 0, suspicious: [], riskScore: 0 }, codeAnalysis: { dexFiles: 0, suspiciousPatterns: [], riskScore: 0 }, threatAnalysis: { isKnownThreat: false } },
                 recommendations: ['Review the APK details', 'Rescan or use official sources']
             });
@@ -390,11 +393,31 @@ class APKScanner {
     
     generateBackendWarningResultHTML(result) {
         const details = result.details;
+        const riskLevel = result.summary.riskLevel;
+        const riskScore = result.summary.riskScore;
+        
+        // Determine appropriate badge and message based on risk level
+        let badgeClass = 'result-warning';
+        let badgeIcon = '⚠️';
+        let title = 'Security risks detected!';
+        let description = 'Our analysis has flagged the uploaded APK as potentially malicious.';
+        
+        if (riskLevel === 'danger' || riskScore > 70) {
+            badgeClass = 'result-danger';
+            badgeIcon = '🚨';
+            title = 'HIGH RISK DETECTED!';
+            description = 'This APK contains serious security threats and should NOT be installed.';
+        } else if (riskLevel === 'suspicious' || (riskScore >= 31 && riskScore <= 70)) {
+            badgeClass = 'result-warning';
+            badgeIcon = '⚠️';
+            title = 'Suspicious activity detected!';
+            description = 'This APK shows signs of suspicious behavior and should be used with caution.';
+        }
         
         return `
-            <div class="result-badge result-warning">⚠️ ${result.summary.riskLevel.toUpperCase()}</div>
-            <h2>Security risks detected!</h2>
-            <p>Our analysis has flagged the uploaded APK as potentially malicious.</p>
+            <div class="result-badge ${badgeClass}">${badgeIcon} ${riskLevel.toUpperCase()}</div>
+            <h2>${title}</h2>
+            <p>${description}</p>
             
             <div class="result-detail">
                 <h3>Security Issues Found</h3>
